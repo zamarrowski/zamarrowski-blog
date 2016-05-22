@@ -16,16 +16,26 @@ var BlogService = (function () {
         this.http = http;
         this.baseservice = 'http://localhost/Apache/GitHub/wordpress/wp-json/wp/v2/';
     }
-    BlogService.prototype.getPosts = function () {
-        return this.http.get(this.baseservice + "posts/")
+    BlogService.prototype.getPosts = function (page) {
+        return this.http.get(this.baseservice + "posts?page=" + page + "&per_page=5")
             .toPromise()
-            .then(function (response) { return response.json(); })
+            .then(function (response) {
+            var totalPages = Number(response.headers._headersMap.get('X-WP-TotalPages')[0]);
+            var posts = response.json();
+            console.log(totalPages);
+            return { totalPages: totalPages, posts: posts };
+        })
             .catch();
     };
     BlogService.prototype.search = function (match) {
-        return this.http.get(this.baseservice + "posts?search=" + match)
+        return this.http.get(this.baseservice + "posts?search=" + match + "&page=1&per_page=5")
             .toPromise()
-            .then(function (response) { return response.json(); })
+            .then(function (response) {
+            var totalPages = Number(response.headers._headersMap.get('X-WP-TotalPages')[0]);
+            console.log(totalPages);
+            var posts = response.json();
+            return { totalPages: totalPages, posts: posts };
+        })
             .catch();
     };
     BlogService = __decorate([

@@ -8,17 +8,27 @@ export class BlogService {
 
     constructor(private http: Http) { }
 
-    getPosts() {
-        return this.http.get(`${this.baseservice}posts/`)
+    getPosts(page) {
+        return this.http.get(`${this.baseservice}posts?page=${page}&per_page=5`)
           .toPromise()
-          .then(response => response.json())
+          .then(response => {
+            var totalPages = Number(response.headers._headersMap.get('X-WP-TotalPages')[0])
+            var posts = response.json()
+            console.log(totalPages)
+            return {totalPages, posts}
+          })
           .catch();
     }
 
     search(match) {
-      return this.http.get(`${this.baseservice}posts?search=${match}`)
+      return this.http.get(`${this.baseservice}posts?search=${match}&page=1&per_page=5`)
         .toPromise()
-        .then(response => response.json())
+        .then(response => {
+          var totalPages = Number(response.headers._headersMap.get('X-WP-TotalPages')[0])
+          console.log(totalPages)
+          var posts = response.json()
+          return {totalPages, posts}
+        })
         .catch();
     }
 

@@ -11,4 +11,10 @@
       </div>
     </div>
   </div>
+  <br>
+  <div class="row">
+    <div class="col-md-12">
+      <button (click)="getMorePosts()" *ngIf="currentPage != totalPages" class="btn btn-success">Ver más posts</button>
+    </div>
+  </div>
 </div>
