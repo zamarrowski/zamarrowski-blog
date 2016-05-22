@@ -19,13 +19,13 @@ var BlogService = (function () {
     BlogService.prototype.getPosts = function () {
         return this.http.get(this.baseservice + "posts/")
             .toPromise()
-            .then(function (response) { return JSON.parse(response._body); })
+            .then(function (response) { return response.json(); })
             .catch();
     };
     BlogService.prototype.search = function (match) {
         return this.http.get(this.baseservice + "posts?search=" + match)
             .toPromise()
-            .then(function (response) { return JSON.parse(response._body); })
+            .then(function (response) { return response.json(); })
             .catch();
     };
     BlogService = __decorate([

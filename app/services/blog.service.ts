@@ -11,14 +11,14 @@ export class BlogService {
     getPosts() {
         return this.http.get(`${this.baseservice}posts/`)
           .toPromise()
-          .then(response => JSON.parse(response._body))
+          .then(response => response.json())
           .catch();
     }
 
     search(match) {
       return this.http.get(`${this.baseservice}posts?search=${match}`)
         .toPromise()
-        .then(response => JSON.parse(response._body))
+        .then(response => response.json())
         .catch();
     }
 
