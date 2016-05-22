@@ -20,6 +20,13 @@ export class BlogService {
           .catch();
     }
 
+    getPostById(id) {
+      return this.http.get(`${this.baseservice}posts/${id}`)
+        .toPromise()
+        .then(response => response.json())
+        .catch();
+    }
+
     search(match) {
       return this.http.get(`${this.baseservice}posts?search=${match}&page=1&per_page=5`)
         .toPromise()

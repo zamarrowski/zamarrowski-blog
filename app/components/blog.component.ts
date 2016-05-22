@@ -46,4 +46,8 @@ export class BlogComponent implements OnInit {
     })
   }
 
+  viewPost(id) {
+    window.open('/post/' + id, '_blank')
+  }
+
 }

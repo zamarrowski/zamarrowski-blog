@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 import { BlogComponent } from './components/blog.component';
+import { SobremiComponent } from './components/sobremi.component';
+import { PostComponent } from './components/post.component';
 
 @Component({
   selector: 'zamarrowski-blog',
@@ -16,6 +18,16 @@ import { BlogComponent } from './components/blog.component';
     name: 'Blog',
     component: BlogComponent,
     useAsDefault: true
+  },
+  {
+    path: '/post/:id',
+    name: 'Post',
+    component: PostComponent,
+  },
+  {
+    path: '/sobre-mi',
+    name: 'Sobremi',
+    component: SobremiComponent
   }
 ])
 

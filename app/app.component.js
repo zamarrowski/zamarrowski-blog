@@ -11,6 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var blog_component_1 = require('./components/blog.component');
+var sobremi_component_1 = require('./components/sobremi.component');
+var post_component_1 = require('./components/post.component');
 var AppComponent = (function () {
     function AppComponent() {
     }
@@ -31,6 +33,16 @@ var AppComponent = (function () {
                 name: 'Blog',
                 component: blog_component_1.BlogComponent,
                 useAsDefault: true
+            },
+            {
+                path: '/post/:id',
+                name: 'Post',
+                component: post_component_1.PostComponent,
+            },
+            {
+                path: '/sobre-mi',
+                name: 'Sobremi',
+                component: sobremi_component_1.SobremiComponent
             }
         ]), 
         __metadata('design:paramtypes', [])

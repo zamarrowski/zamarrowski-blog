@@ -47,6 +47,9 @@ var BlogComponent = (function () {
             }
         });
     };
+    BlogComponent.prototype.viewPost = function (id) {
+        window.open('/post/' + id, '_blank');
+    };
     BlogComponent = __decorate([
         core_1.Component({
             selector: 'blog',

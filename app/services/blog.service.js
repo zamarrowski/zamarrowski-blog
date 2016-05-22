@@ -27,6 +27,12 @@ var BlogService = (function () {
         })
             .catch();
     };
+    BlogService.prototype.getPostById = function (id) {
+        return this.http.get(this.baseservice + "posts/" + id)
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch();
+    };
     BlogService.prototype.search = function (match) {
         return this.http.get(this.baseservice + "posts?search=" + match + "&page=1&per_page=5")
             .toPromise()
