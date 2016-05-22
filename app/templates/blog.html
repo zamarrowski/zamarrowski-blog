@@ -1,0 +1,14 @@
+<div class="container">
+  <br>
+  <div class="row">
+    <div class="col-md-12"><input [(ngModel)]="search" type="text" class="form-control" placeholder="Buscar..." (keyup)="searchOnEnter($event)"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="postBox" *ngFor="let post of posts">
+        <h3 class="postTitle">{{post.title.rendered}}</h3>
+        <div [innerHTML]="post.content.rendered"></div>
+      </div>
+    </div>
+  </div>
+</div>

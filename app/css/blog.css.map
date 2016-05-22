@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,QAAQ;EACN,MAAM,EAAE,iBAAiB;EACzB,OAAO,EAAE,IAAI;EACb,UAAU,EAAE,IAAI;EAChB,UAAU,EAAE,oBAAoB;;AAElC,UAAU;EACR,MAAM,EAAE,GAAG;EACX,aAAa,EAAE,IAAI",
+"sources": ["blog.sass"],
+"names": [],
+"file": "blog.css"
+}

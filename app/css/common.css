@@ -1,0 +1,43 @@
+.customNavbar {
+  border-radius: inherit; }
+
+.socialIcons {
+  text-align: center; }
+
+.socialIconBox {
+  border: 1px solid black;
+  display: inline-block;
+  border-radius: 50%;
+  margin: 5px;
+  height: 40px;
+  width: 40px;
+  padding-top: 12px; }
+  .socialIconBox:hover {
+    cursor: pointer; }
+
+.twitterIcon:hover {
+  background-color: #55acee;
+  color: white;
+  border-color: #55acee; }
+
+.facebookIcon:hover {
+  background-color: #3b5998;
+  color: white;
+  border-color: #3b5998; }
+
+.linkedinIcon:hover {
+  background-color: #1679ad;
+  color: white;
+  border-color: #1679ad; }
+
+.stacoverflowIcon:hover {
+  background-color: #f48024;
+  color: white;
+  border-color: #f48024; }
+
+.githubIcon:hover {
+  background-color: black;
+  color: white;
+  border-color: black; }
+
+/*# sourceMappingURL=common.css.map */
