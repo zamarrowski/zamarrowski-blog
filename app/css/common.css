@@ -40,4 +40,12 @@
   color: white;
   border-color: black; }
 
+.imgProfile {
+  border-radius: 50%;
+  height: 150px; }
+  .imgProfile:hover {
+    cursor: pointer;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%); }
+
 /*# sourceMappingURL=common.css.map */

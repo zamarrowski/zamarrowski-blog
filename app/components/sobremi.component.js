@@ -15,7 +15,8 @@ var SobremiComponent = (function () {
     SobremiComponent = __decorate([
         core_1.Component({
             selector: 'sobre-mi',
-            templateUrl: 'app/templates/sobremi.html'
+            templateUrl: 'app/templates/sobremi.html',
+            styleUrls: ['app/css/sobremi.css']
         }), 
         __metadata('design:paramtypes', [])
     ], SobremiComponent);

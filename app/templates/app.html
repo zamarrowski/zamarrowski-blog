@@ -15,13 +15,15 @@
       <ul class="nav navbar-nav">
         <li><a [routerLink]="['Blog']" href="#">Blog</a></li>
         <li><a [routerLink]="['Sobremi']">Sobre mi</a></li>
-        <li><a href="#">Contacto</a></li>
       </ul>
     </div>
 
   </div>
 </nav>
 <div class="container">
+  <div class="row" style="text-align: center">
+    <img src="app/img/profilePhoto.jpg" title="Yo!" class="imgProfile">
+  </div><br>
   <div class="row">
     <div class="socialIcons">
       <div (click)="redirecToSocialPage('https://twitter.com/zamarrowski')" class="socialIconBox twitterIcon">
