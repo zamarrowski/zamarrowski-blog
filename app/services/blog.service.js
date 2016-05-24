@@ -14,7 +14,7 @@ require('rxjs/add/operator/toPromise');
 var BlogService = (function () {
     function BlogService(http) {
         this.http = http;
-        this.baseservice = 'http://localhost/Apache/GitHub/wordpress/wp-json/wp/v2/';
+        this.baseservice = 'http://46.101.3.151/wordpress/wp-json/wp/v2/';
     }
     BlogService.prototype.getPosts = function (page) {
         return this.http.get(this.baseservice + "posts?page=" + page + "&per_page=5")
@@ -22,7 +22,6 @@ var BlogService = (function () {
             .then(function (response) {
             var totalPages = Number(response.headers._headersMap.get('X-WP-TotalPages')[0]);
             var posts = response.json();
-            console.log(totalPages);
             return { totalPages: totalPages, posts: posts };
         })
             .catch();
@@ -38,7 +37,6 @@ var BlogService = (function () {
             .toPromise()
             .then(function (response) {
             var totalPages = Number(response.headers._headersMap.get('X-WP-TotalPages')[0]);
-            console.log(totalPages);
             var posts = response.json();
             return { totalPages: totalPages, posts: posts };
         })

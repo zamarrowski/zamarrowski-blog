@@ -23,7 +23,6 @@ var BlogComponent = (function () {
         this.blogService.getPosts(this.currentPage).then(function (response) {
             _this.posts = response.posts;
             _this.totalPages = response.totalPages;
-            console.log(_this.posts);
         });
     };
     BlogComponent.prototype.searchOnEnter = function (event) {

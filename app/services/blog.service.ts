@@ -4,7 +4,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class BlogService {
-    baseservice = 'http://localhost/Apache/GitHub/wordpress/wp-json/wp/v2/'
+    baseservice = 'http://46.101.3.151/wordpress/wp-json/wp/v2/'
 
     constructor(private http: Http) { }
 
@@ -14,7 +14,6 @@ export class BlogService {
           .then(response => {
             var totalPages = Number(response.headers._headersMap.get('X-WP-TotalPages')[0])
             var posts = response.json()
-            console.log(totalPages)
             return {totalPages, posts}
           })
           .catch();
@@ -32,7 +31,6 @@ export class BlogService {
         .toPromise()
         .then(response => {
           var totalPages = Number(response.headers._headersMap.get('X-WP-TotalPages')[0])
-          console.log(totalPages)
           var posts = response.json()
           return {totalPages, posts}
         })

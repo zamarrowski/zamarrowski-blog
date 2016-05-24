@@ -21,7 +21,6 @@ export class BlogComponent implements OnInit {
     this.blogService.getPosts(this.currentPage).then(response => {
       this.posts = response.posts
       this.totalPages = response.totalPages
-      console.log(this.posts)
     })
   }
 
@@ -40,8 +39,8 @@ export class BlogComponent implements OnInit {
     this.currentPage++
     this.blogService.getPosts(this.currentPage).then(response => {
       for (let i = 0; i < response.posts.length; i++) {
-          let post = response.posts[i];
-          this.posts.push(post)
+        let post = response.posts[i];
+        this.posts.push(post)
       }
     })
   }
