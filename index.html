@@ -4,43 +4,15 @@
   <title>Blog de programacion - Sergio Zamarrowski</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
   <script src="https://use.fontawesome.com/032418c700.js"></script>
-  <script src="libs/jquery.dotdotdot.min.js"></script>
-  <style>
-    .loadingSpinner {
-      height: 200px;
-      width: 200px;
-      border-radius: 50%;
-      border: 10px solid gray;
-      border-top: 10px solid rgba(51, 122, 183, 0.77);
-      -webkit-animation: spin 0.7s linear infinite;
-      -moz-animation: spin 0.7s linear infinite;
-      animation: spin 0.7s linear infinite;
-      margin: 0 auto;
-      margin-top: 10%;
-    }
-    @-webkit-keyframes spin {
-      100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-      }
-    }
-    @-moz-keyframes spin {
-      100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-      }
-    }
-    @keyframes spin {
-      100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-      }
-    }
-  </style>
+
 
   <!-- 1. Load libraries -->
   <!-- Polyfill(s) for older browsers -->
@@ -58,8 +30,23 @@
 <body>
   <div class="fluid-container">
     <zamarrowski-blog>
-      <div class="loadingSpinner"></div>
-      <h3 style="text-align: center">Cargando...</h3>
+      <div class="container">
+        <div class="row" style="text-align: center; margin-top: 10%">
+          <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div><div class="gap-patch">
+                <div class="circle"></div>
+              </div><div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+          </div>
+          <h3>Cargando...</h3>
+        </div>
+      </div>
+
     </zamarrowski-blog>
   </div><br>
 </body>

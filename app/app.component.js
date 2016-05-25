@@ -19,6 +19,10 @@ var AppComponent = (function () {
     AppComponent.prototype.redirecToSocialPage = function (socialPage) {
         window.open(socialPage, '_blank');
     };
+    AppComponent.prototype.ngAfterViewInit = function () {
+        var $ = window['$'];
+        $(".button-collapse").sideNav();
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'zamarrowski-blog',

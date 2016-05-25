@@ -1,9 +1,11 @@
 <div class="container">
   <div class="row" *ngIf="post">
-    <div class="col-md-12">
-      <div class="postBox">
-        <h3 class="postTitle">{{post.title.rendered}}</h3>
-        <div [innerHTML]="post.content.rendered"></div>
+    <div class="col s12">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">{{post.title.rendered}}</span>
+          <span [innerHTML]="post.content.rendered"></span>
+        </div>
       </div>
     </div>
   </div>

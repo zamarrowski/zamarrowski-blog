@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 import { BlogComponent } from './components/blog.component';
 import { SobremiComponent } from './components/sobremi.component';
@@ -31,10 +31,15 @@ import { PostComponent } from './components/post.component';
   }
 ])
 
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
 
   redirecToSocialPage(socialPage) {
     window.open(socialPage, '_blank');
+  }
+
+  ngAfterViewInit() {
+    let $ = window['$']
+    $(".button-collapse").sideNav();
   }
 
 }

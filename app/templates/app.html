@@ -1,50 +1,33 @@
 <nav class="navbar navbar-inverse customNavbar">
   <div class="container-fluid">
-
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" [routerLink]="['Blog']">Zamarrowski</a>
-    </div>
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a [routerLink]="['Blog']" href="#">Blog</a></li>
-        <li><a [routerLink]="['Sobremi']">Sobre mi</a></li>
-      </ul>
-    </div>
+    <nav>
+      <div class="nav-wrapper blue darken-3">
+        <a href="#!" class="brand-logo nameBlog">Zamarrowski</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars btnMenu"></i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a [routerLink]="['Blog']" href="#">Blog</a></li>
+          <li><a [routerLink]="['Sobremi']">Sobre mi</a></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><a [routerLink]="['Blog']" href="#">Blog</a></li>
+          <li><a [routerLink]="['Sobremi']">Sobre mi</a></li>
+        </ul>
+      </div>
+    </nav>
 
   </div>
 </nav>
 <div class="container">
-  <div class="row" style="text-align: center">
+  <div class="row" style="text-align: center;">
     <img src="app/img/profilePhoto.jpg" title="Yo!" class="imgProfile">
   </div><br>
   <div class="row">
     <div class="socialIcons">
-      <div (click)="redirecToSocialPage('https://twitter.com/zamarrowski')" class="socialIconBox twitterIcon">
-        <i class="fa fa-twitter"></i>
-      </div>
-
-      <div (click)="redirecToSocialPage('https://www.facebook.com/profile.php?id=100008256190552')" class="socialIconBox facebookIcon">
-        <i class="fa fa-facebook"></i>
-      </div>
-
-      <div (click)="redirecToSocialPage('http://stackoverflow.com/users/4623621/zamarrowski')" class="socialIconBox stacoverflowIcon">
-        <i class="fa fa-stack-overflow"></i>
-      </div>
-
-      <div (click)="redirecToSocialPage('https://github.com/zamarrowski')" class="socialIconBox githubIcon">
-        <i class="fa fa-github"></i>
-      </div>
-
-      <div (click)="redirecToSocialPage('https://es.linkedin.com/in/sergio-zamarro-s%C3%A1nchez-b7834abb')" class="socialIconBox linkedinIcon">
-        <i class="fa fa-linkedin"></i>
-      </div>
+      <a href="https://twitter.com/zamarrowski" target="_blank" class="btn-floating btn waves-effect waves-light blue darken-3"><i class="fa fa-twitter"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=100008256190552" target="_blank" class="btn-floating btn waves-effect waves-light blue darken-3"><i class="fa fa-facebook"></i></a>
+      <a href="http://stackoverflow.com/users/4623621/zamarrowski" target="_blank" class="btn-floating btn waves-effect waves-light blue darken-3"><i class="fa fa-stack-overflow"></i></a>
+      <a href="https://github.com/zamarrowski" target="_blank" class="btn-floating btn waves-effect waves-light blue darken-3"><i class="fa fa-github"></i></a>
+      <a href="https://es.linkedin.com/in/sergio-zamarro-s%C3%A1nchez-b7834abb" target="_blank" class="btn-floating btn waves-effect waves-light blue darken-3"><i class="fa fa-linkedin"></i></a>
     </div>
   </div>
 </div>
