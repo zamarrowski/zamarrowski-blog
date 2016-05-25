@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from '../services/blog.service';
+import { DateHandler } from '../helpers/DataHandler';
 
 @Component({
   selector: 'blog',
   templateUrl: 'app/templates/blog.html',
   styleUrls: ['app/css/blog.css'],
-  providers: [BlogService]
+  providers: [BlogService, DateHandler]
 })
 
 export class BlogComponent implements OnInit {
@@ -15,11 +16,12 @@ export class BlogComponent implements OnInit {
   totalPages = 0;
   search = '';
 
-  constructor(private blogService: BlogService) { }
+  constructor(private blogService: BlogService, private dateHandler: DateHandler) { }
 
   ngOnInit() {
     this.blogService.getPosts(this.currentPage).then(response => {
-      this.posts = response.posts
+      console.log(response.posts)
+      this.posts = this.dateHandler.convertPostDates(response.posts)
       this.totalPages = response.totalPages
     })
   }
@@ -28,7 +30,7 @@ export class BlogComponent implements OnInit {
     if (event.which == 13) {
       console.log(this.search)
       this.blogService.search(this.search).then(response => {
-        this.posts = response.posts
+        this.posts = this.dateHandler.convertPostDates(response.posts)
         this.totalPages = response.totalPages
         this.currentPage = 1
       })
@@ -38,6 +40,7 @@ export class BlogComponent implements OnInit {
   getMorePosts() {
     this.currentPage++
     this.blogService.getPosts(this.currentPage).then(response => {
+      response.posts = this.dateHandler.convertPostDates(response.posts)
       for (let i = 0; i < response.posts.length; i++) {
         let post = response.posts[i];
         this.posts.push(post)

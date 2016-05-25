@@ -11,10 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var blog_service_1 = require('../services/blog.service');
+var DataHandler_1 = require('../helpers/DataHandler');
 var PostComponent = (function () {
-    function PostComponent(params, blogService) {
+    function PostComponent(params, blogService, dateHandler) {
         this.params = params;
         this.blogService = blogService;
+        this.dateHandler = dateHandler;
         this.id = null;
         this.post = null;
         this.id = params.get('id');
@@ -23,7 +25,7 @@ var PostComponent = (function () {
         var _this = this;
         this.blogService.getPostById(this.id).then(function (post) {
             console.log(post);
-            _this.post = post;
+            _this.post = _this.dateHandler.convertPostDates([post])[0];
         });
     };
     PostComponent = __decorate([
@@ -31,9 +33,9 @@ var PostComponent = (function () {
             selector: 'post',
             templateUrl: 'app/templates/post.html',
             styleUrls: ['app/css/blog.css'],
-            providers: [blog_service_1.BlogService]
+            providers: [blog_service_1.BlogService, DataHandler_1.DateHandler]
         }), 
-        __metadata('design:paramtypes', [router_deprecated_1.RouteParams, blog_service_1.BlogService])
+        __metadata('design:paramtypes', [router_deprecated_1.RouteParams, blog_service_1.BlogService, DataHandler_1.DateHandler])
     ], PostComponent);
     return PostComponent;
 }());

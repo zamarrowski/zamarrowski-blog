@@ -10,9 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var blog_service_1 = require('../services/blog.service');
+var DataHandler_1 = require('../helpers/DataHandler');
 var BlogComponent = (function () {
-    function BlogComponent(blogService) {
+    function BlogComponent(blogService, dateHandler) {
         this.blogService = blogService;
+        this.dateHandler = dateHandler;
         this.posts = [];
         this.currentPage = 1;
         this.totalPages = 0;
@@ -21,7 +23,8 @@ var BlogComponent = (function () {
     BlogComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.blogService.getPosts(this.currentPage).then(function (response) {
-            _this.posts = response.posts;
+            console.log(response.posts);
+            _this.posts = _this.dateHandler.convertPostDates(response.posts);
             _this.totalPages = response.totalPages;
         });
     };
@@ -30,7 +33,7 @@ var BlogComponent = (function () {
         if (event.which == 13) {
             console.log(this.search);
             this.blogService.search(this.search).then(function (response) {
-                _this.posts = response.posts;
+                _this.posts = _this.dateHandler.convertPostDates(response.posts);
                 _this.totalPages = response.totalPages;
                 _this.currentPage = 1;
             });
@@ -40,6 +43,7 @@ var BlogComponent = (function () {
         var _this = this;
         this.currentPage++;
         this.blogService.getPosts(this.currentPage).then(function (response) {
+            response.posts = _this.dateHandler.convertPostDates(response.posts);
             for (var i = 0; i < response.posts.length; i++) {
                 var post = response.posts[i];
                 _this.posts.push(post);
@@ -54,9 +58,9 @@ var BlogComponent = (function () {
             selector: 'blog',
             templateUrl: 'app/templates/blog.html',
             styleUrls: ['app/css/blog.css'],
-            providers: [blog_service_1.BlogService]
+            providers: [blog_service_1.BlogService, DataHandler_1.DateHandler]
         }), 
-        __metadata('design:paramtypes', [blog_service_1.BlogService])
+        __metadata('design:paramtypes', [blog_service_1.BlogService, DataHandler_1.DateHandler])
     ], BlogComponent);
     return BlogComponent;
 }());
