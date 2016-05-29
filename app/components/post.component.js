@@ -23,10 +23,23 @@ var PostComponent = (function () {
     }
     PostComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.initDisqus();
         this.blogService.getPostById(this.id).then(function (post) {
             console.log(post);
             _this.post = _this.dateHandler.convertPostDates([post])[0];
         });
+    };
+    PostComponent.prototype.initDisqus = function () {
+        var disqus_config = function () {
+            this.page.url = 'http://www.sergiozamarro.me' + window.location.pathname;
+            this.page.identifier = window.location.pathname;
+        };
+        (function () {
+            var d = document, s = d.createElement('script');
+            s.src = '//sergiozamarro.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', '' + new Date());
+            (d.head || d.body).appendChild(s);
+        })();
     };
     PostComponent = __decorate([
         core_1.Component({
